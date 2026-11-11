@@ -7,7 +7,6 @@ import { MnitGate } from '../landmarks/MnitGate.js';
 import { WtpMall } from '../landmarks/WtpMall.js';
 import { PacificMall } from '../landmarks/PacificMall.js';
 
-// Lesson 4 Imports
 import { SandstoneWalls } from './zoneB/SandstoneWalls.js';
 import { Jharokhas } from './zoneB/Jharokhas.js';
 import { Stalls } from './zoneB/Stalls.js';
@@ -21,6 +20,7 @@ import { Fireworks } from './zoneC/Fireworks.js';
 export class ZoneBuilder {
   constructor(scene, curve, zoneConfig, tier, cameraRig) {
     this._scene = scene;
+    this.zoneConfig = zoneConfig; // <--- THE FIX: Save the config so ChunkManager can read tStart/tEnd
     this.group = new THREE.Group();
     this.group.name = `Zone_${zoneConfig.id}`;
     this._children = [];
