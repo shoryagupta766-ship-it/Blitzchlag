@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Basic SEO Meta Tags -->
+    <title>Blitzschlag '27 | MNIT Jaipur Cultural Fest</title>
+    <meta name="description" content="Experience Blitzschlag, the premier annual cultural festival of MNIT Jaipur. Register for events, pro-nites, and workshops." />
+    
+    <!-- Open Graph for social media link unfurling (WhatsApp, Twitter, LinkedIn) -->
+    <meta property="og:title" content="Blitzschlag | MNIT Jaipur" />
+    <meta property="og:description" content="Join the biggest cultural fest of Rajasthan. Explore the 3D campus and register now!" />
+    <!-- Tricky line: Always use compressed WebP or JPG for OG images to ensure they load instantly in chat apps -->
+    <meta property="og:image" content="/assets/og-preview.webp" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <link rel="stylesheet" href="./src/styles/navbar.css" />
+    <link rel="stylesheet" href="./src/styles/pages.css" />
+  </head>
+  <body>
+    <!-- Accessibility: using semantic <nav> and aria-labels -->
+    <nav id="navbar" aria-label="Main Navigation">
+      <div class="nav-brand">BLITZSCHLAG</div>
+      <div class="nav-links">
+        <a href="#/home" class="nav-link">Home</a>
+        <a href="#/competitions" class="nav-link">Competitions</a>
+        <a href="#/passes" class="nav-link">Passes</a>
+        <a href="#/contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="register-btn" tabindex="0">Register</button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+
+    <!-- Semantic main landmark -->
+    <main id="app"></main>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden; 
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+#brand-title {
+  /* Tricky line: clamp() fluidly scales text. Minimum 2rem, preferred size 8vw (viewport width), maximum 6rem. */
+  font-size: clamp(2rem, 8vw, 6rem);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  text-align: center;
+}

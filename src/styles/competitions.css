@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@700&display=swap');
+
+/* Tricky line: radial-gradient creates a halftone dot effect by repeating small circles */
+.competitions-page {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #6b0f0f;
+  background-image: radial-gradient(#4a0909 2px, transparent 2px);
+  background-size: 20px 20px; /* Spacing of the dots */
+  overflow-x: hidden;
+}
+
+.banner-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  pointer-events: none; /* Let clicks pass through the background */
+  z-index: 1;
+}
+
+.banner {
+  width: 120px;
+  height: 60vh;
+  min-height: 400px;
+  /* Tricky line: clip-path cuts the bottom into a triangle. X Y coordinates from top-left. */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 50% 100%, 0 calc(100% - 40px));
+  border-left: 4px dashed #D4AF37; /* Simulates a gold braided rope edge */
+  border-right: 4px dashed #D4AF37;
+  position: relative;
+  /* Faint doodle pattern using a data URI SVG to keep things fast and asset-free */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100" opacity="0.2"><path fill="%23fff" d="M30 40c0-10 40-10 40 0s-40 10-40 0zm20 20c-5 0-10 10-10 15s5 15 10 15 10-10 10-15-5-15-10-15z"/></svg>');
+  background-size: 80px;
+}
+
+/* Page heading overlay */
+.heading-container {
+  position: relative;
+  z-index: 2; /* Sits above the banners */
+  text-align: center;
+  padding-top: 15vh;
+  pointer-events: none;
+}
+
+.heading-script {
+  font-family: 'Caveat', cursive;
+  font-size: 4rem;
+  color: #FFD400;
+  margin-bottom: -30px;
+  transform: rotate(-5deg);
+  display: inline-block;
+}
+
+.heading-main {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: #ffffff;
+  letter-spacing: 0.2rem;
+  /* Tricky line: multiple text-shadows create a thick, solid offset shadow */
+  text-shadow: 4px 4px 0 #1e2a6b, 8px 8px 0 #1e2a6b;
+  margin: 0;
+  line-height: 1;
+}
