@@ -1,0 +1,96 @@
+/* src/styles/hud.css */
+.blitz-hud {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 11; font-family: 'Bebas Neue', sans-serif;
+  overflow: hidden;
+}
+
+/* Base Interactions */
+.blitz-hud button, .blitz-hud .index-row, .blitz-hud .skip-menu-link {
+  pointer-events: auto; cursor: pointer;
+}
+.blitz-hud button:focus-visible, .blitz-hud a:focus-visible {
+  outline: 3px solid #D4A017; outline-offset: 2px;
+}
+
+/* Logo Plate */
+.hud-logo-plate {
+  position: absolute; top: 20px; left: 20px;
+  background: #5B1A1A; border: 2px solid #D4A017;
+  padding: 10px 20px; color: #FFF; border-radius: 4px;
+}
+.hud-logo-plate h1 { margin: 0; font-size: 32px; letter-spacing: 2px; }
+.hud-logo-plate p { margin: 5px 0 0 0; font-size: 14px; font-family: monospace; color: #E8C5A0; }
+
+/* Destination Index */
+.hud-dest-index {
+  position: absolute; top: 20px; right: 20px;
+  background: rgba(10, 14, 42, 0.9); border: 2px solid #D4A017;
+  color: #FFF; width: 280px; border-radius: 4px; transition: max-height 0.3s;
+}
+.index-header {
+  width: 100%; background: none; border: none; color: #D4A017;
+  padding: 15px; font-size: 18px; text-align: left; display: flex; justify-content: space-between;
+}
+.index-list {
+  list-style: none; margin: 0; padding: 0; max-height: 400px; overflow: hidden; transition: max-height 0.3s;
+}
+.hud-dest-index.collapsed .index-list { max-height: 0; }
+.hud-dest-index.collapsed .arrow { transform: rotate(-90deg); }
+.index-row {
+  display: flex; justify-content: space-between; padding: 12px 15px; border-top: 1px solid rgba(255,255,255,0.1);
+  font-family: monospace; font-size: 12px; transition: background 0.2s;
+}
+.index-row:hover { background: rgba(212, 160, 23, 0.2); }
+.index-row.done .index-status { color: #008080; }
+.index-row.here .index-status { color: #D4A017; }
+
+/* Speedometer */
+.hud-speedometer {
+  position: absolute; bottom: 30px; left: 30px; color: #FFF;
+}
+.speed-num { font-size: 64px; line-height: 1; text-shadow: 2px 2px 0 #D4A017; }
+.speed-label { font-size: 16px; margin-bottom: 5px; color: #D4A017; }
+.speed-bar { width: 150px; height: 6px; background: rgba(255,255,255,0.2); transform-origin: left; }
+.speed-bar-fill { width: 100%; height: 100%; background: #FFF; transform: scaleX(0); transform-origin: left; transition: transform 0.1s linear; }
+
+/* Controls Hint */
+.hud-controls-hint {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 20px; background: rgba(0,0,0,0.6); padding: 10px 20px;
+  border-radius: 20px; color: #FFF; font-family: monospace; font-size: 12px;
+  transition: opacity 1s;
+}
+.hud-controls-hint.fade-out { opacity: 0; }
+.hud-controls-hint b { color: #D4A017; }
+
+/* Zone Toast */
+.hud-zone-toast {
+  position: absolute; top: 100px; left: 50%; transform: translateX(-50%);
+  font-size: 24px; color: #FFF; background: #5B1A1A; padding: 10px 30px;
+  border-radius: 4px; opacity: 0; transition: opacity 0.3s;
+}
+.hud-zone-toast.show { opacity: 1; }
+
+/* Buttons & Skip Menu */
+.hud-btn-group { position: absolute; bottom: 30px; right: 30px; display: flex; gap: 10px; }
+.hud-btn { background: rgba(0,0,0,0.7); border: 2px solid #FFF; color: #FFF; padding: 10px 15px; font-size: 18px; border-radius: 4px; }
+.hud-btn:hover { background: #FFF; color: #000; }
+.hud-btn-skip { border-color: #D4A017; color: #D4A017; }
+.hud-btn-skip:hover { background: #D4A017; color: #000; }
+
+.skip-menu-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(10, 14, 42, 0.95); display: flex; justify-content: center; align-items: center;
+  pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 9000;
+}
+.skip-menu-overlay.show { pointer-events: auto; opacity: 1; }
+.skip-menu-dialog {
+  background: #FFF; padding: 40px; border-radius: 8px; text-align: center; color: #000;
+}
+.skip-menu-list { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 30px 0; }
+.skip-menu-link {
+  display: block; padding: 15px; background: #E8C5A0; color: #5B1A1A;
+  text-decoration: none; font-size: 24px; border-radius: 4px;
+}
+.skip-menu-link:hover { background: #5B1A1A; color: #FFF; }
